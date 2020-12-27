@@ -6,10 +6,9 @@ sudo apt install zsh autojump curl git wget
 
 # install oh-my-zsh and powerline10k 
 
-cd $HOME
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
-rm -f install.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+bash -c "$(curl -fsSL https://gist.githubusercontent.com/romkatv/aa7a70fe656d8b655e3c324eb10f6a8b/raw/install_meslo_wsl.sh)"
 
 # install plugins and powerlevel10k theme
 
@@ -37,3 +36,4 @@ rm -f $HOME/.zshrc $HOME/.p10k.zsh
 
 ln -s $DOTFILES/zshrc $HOME/.zshrc 
 ln -s $DOTFILES/p10k.zsh $HOME/.p10k.zsh
+
