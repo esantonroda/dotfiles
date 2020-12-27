@@ -79,6 +79,8 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    git-flow
+    kubectl
     zsh-completions
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -115,6 +117,8 @@ source $ZSH/oh-my-zsh.sh
 # SQLcl
 export JAVA_HOME=${HOME}/java/latest
 alias sql="${HOME}/sqlcl/bin/sql"
+alias k=kubectl
+complete -o default -F __start_kubectl k
 
 # history
 export HISTFILESIZE=1000000000
