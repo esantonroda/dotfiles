@@ -17,4 +17,3 @@ or
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/esantonroda/dotfiles/main/configure.sh)
 
 ```
-
