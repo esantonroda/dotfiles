@@ -50,8 +50,8 @@ mkdir -p ~/bin
 git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
 
 chmod +x ~/.kubectx/kubens ~/.kubectx/kubectx
-ln -sf ~/.kubectx/kubens /usr/local/bin/kubens
-ln -sf ~/.kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -sf ~/.kubectx/kubens /usr/local/bin/kubens
+sudo ln -sf ~/.kubectx/kubectx /usr/local/bin/kubectx
 
 mkdir -p ~/.oh-my-zsh/completions
 chmod -R 755 ~/.oh-my-zsh/completions
