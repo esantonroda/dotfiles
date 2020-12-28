@@ -2,7 +2,9 @@
 
 # install required packages
 
-sudo apt install zsh autojump curl git wget kubectl
+sudo apt install zsh autojump curl git wget kubectl exa
+
+# yum install zsh autojump curl git wget kubectl exa
 
 # install oh-my-zsh and powerline10k theme
 
@@ -24,7 +26,7 @@ git clone https://github.com/esantonroda/dotfiles.git $HOME/.dotfiles
 
 # fonts
 
-mkdir -p /home/esantonroda/.fonts
+mkdir -p $HOME/.fonts
 
 wget -O $HOME/.fonts/MesloLGS%20NF%20Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
 wget -O $HOME/.fonts/MesloLGS%20NF%20Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
