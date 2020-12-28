@@ -14,6 +14,6 @@ or
 
 ```shell
 
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/esantonroda/dotfiles/main/configure.sh)
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/esantonroda/dotfiles/main/configure.sh)"
 
 ```
