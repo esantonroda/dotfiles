@@ -2,7 +2,7 @@
 
 # install required packages
 
-sudo apt install zsh autojump curl git wget kubectl exa
+sudo apt install zsh autojump curl git wget kubectl
 
 # yum install zsh autojump curl git wget kubectl exa
 
