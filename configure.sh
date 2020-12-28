@@ -4,7 +4,7 @@
 
 sudo apt install zsh autojump curl git wget kubectl
 
-# install oh-my-zsh and powerline10k 
+# install oh-my-zsh and powerline10k theme
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
