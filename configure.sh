@@ -22,6 +22,15 @@ git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$H
 
 git clone https://github.com/esantonroda/dotfiles.git $HOME/.dotfiles
 
+# fonts
+
+mkdir -p /home/esantonroda/.fonts
+
+wget -O $HOME/.fonts/MesloLGS%20NF%20Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+wget -O $HOME/.fonts/MesloLGS%20NF%20Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+wget -O $HOME/.fonts/MesloLGS%20NF%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+wget -O $HOME/.fonts/MesloLGS%20NF%20Bold%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+
 # backup of previous config files
 
 mkdir -p $HOME/.dotfiles/backup
