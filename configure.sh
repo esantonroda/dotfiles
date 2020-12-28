@@ -47,6 +47,7 @@ ln -s $DOTFILES/zshrc $HOME/.zshrc
 ln -s $DOTFILES/p10k.zsh $HOME/.p10k.zsh
 
 # kube environment
+
 #kubectl
 ## curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 ## chmod +x ./kubectl
@@ -54,6 +55,7 @@ ln -s $DOTFILES/p10k.zsh $HOME/.p10k.zsh
 ## sudo mv ./kubectl /usr/local/bin/kubectl
 
 # kubectx+kubens
+
 mkdir -p ~/bin
 
 git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
