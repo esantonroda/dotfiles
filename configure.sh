@@ -2,9 +2,24 @@
 
 # install required packages
 
-sudo apt install zsh autojump curl git wget kubectl
+OSID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
 
-# yum install zsh autojump curl git wget kubectl exa
+case "$OSID" in
+
+ubuntu)  echo "Installing in $OSID"
+    sudo apt install zsh autojump curl git wget kubectl
+    ;;
+rhel)  echo  echo "Installing in $OSID"
+    yum install zsh autojump curl git wget kubectl
+    ;;
+#suse)  echo  echo "Installing in $OSID" # untested
+#    zypper install zsh autojump curl git wget kubectl
+#    ;;
+*) echo "Unsupported OS: $OSID"
+exit 99
+   ;;
+esac
+
 
 # install oh-my-zsh and powerline10k theme
 
