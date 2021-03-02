@@ -4,6 +4,8 @@
 
 DATE_BCK=$(date +%Y%m%d%H%M%S)
 OSID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
+DOTFILES=$HOME/.dotfiles
+
 
 zsh_install () {
 # install oh-my-zsh and powerline10k theme
@@ -14,11 +16,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone https://github.com/esantonroda/dotfiles.git $HOME/.dotfiles
+git clone https://github.com/esantonroda/dotfiles.git $DOTFILES
 if [ $? -eq 128 ]
 then
 echo "fatal error on clone"
-  cd $HOME/.dotfiles
+  cd $DOTFILES
   git pull
 fi
 
@@ -46,16 +48,13 @@ FILE=$HOME/.fonts/MesloLGS%20NF%20Regular.ttf
 
 zsh_backup () {
 # backup of previous config files
-
-mkdir -p $HOME/.dotfiles/backup
-
-DOTFILES=$HOME/.dotfiles
-
+echo "Backing up files..."
+mkdir -p $DOTFILES/backup
 cp -p $HOME/.zshrc  $DOTFILES/backup/.zshrc-$DATE_BCK
 cp -p $HOME/.p10k.zsh $DOTFILES/backup/.p10k.zsh-$DATE_BCK
-
+echo "Deleting files..."
 rm -f $HOME/.zshrc $HOME/.p10k.zsh
-
+echo "Done."
 }
 
 ## linking to new files
@@ -67,7 +66,7 @@ ln -s $DOTFILES/p10k.zsh $HOME/.p10k.zsh
 
 link_install_cbld () {
 ln -s $DOTFILES/zshrc $HOME/.zshrc 
-ln -s $DOTFILES/p10k.zsh $HOME/.p10k.zsh
+ln -s $DOTFILES/p10k-azure.zsh $HOME/.p10k.zsh
 }
 
 # kube environment
@@ -99,7 +98,6 @@ case "$OSID" in
 ubuntu)  echo "Installing in $OSID"
     sudo apt install zsh autojump curl git wget kubectl
     zsh_install
-    test_fonts_install
     fonts_install
     zsh_backup
     link_install
