@@ -29,21 +29,18 @@ fi
 
 fonts_install () {
 FILE=$HOME/.fonts/MesloLGS%20NF%20Regular.ttf
+
     if [ -f "$FILE" ]
         then    
-        echo "$FILE exists."
-        $TEST="fonts_ok"
-    fi
-
-    if [ $TEST = "fonts_ok" ]
-        then
-        echo "Fonts already installed"
+        echo "Fonts previously installed."
     else
+        echo "Installing fonts..."
         mkdir -p $HOME/.fonts
         wget -O $HOME/.fonts/MesloLGS%20NF%20Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
         wget -O $HOME/.fonts/MesloLGS%20NF%20Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
         wget -O $HOME/.fonts/MesloLGS%20NF%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
         wget -O $HOME/.fonts/MesloLGS%20NF%20Bold%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+        echo "MesloLGS Fonts installed on $HOME/.fonts"
     fi
 }
 
