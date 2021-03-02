@@ -16,7 +16,7 @@ rhel)  echo "Installing in $OSID"
 #suse) echo "Installing in $OSID" # untested
 #    zypper install zsh autojump curl git wget kubectl
 #    ;;
-cbld) echo "Installing in $OSID, posibly azure"
+cbld) echo "Installing in $OSID, posibly azure."
 ;;
 *) echo "Unsupported OS: $OSID"
 exit 99
