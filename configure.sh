@@ -2,7 +2,7 @@
 
 # install required packages
 
-#DATE_BCK=$(date +%Y%m%d%H%M%S)
+DATE_BCK=$(date +%Y%m%d%H%M%S)
 OSID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
 
 case "$OSID" in
@@ -13,6 +13,7 @@ ubuntu)  echo "Installing in $OSID"
     fonts_install
     zsh_backup
     link_install
+    kube_addons_install
     ;;
 rhel)  echo "Installing in $OSID"
     yum install zsh autojump curl git wget kubectl
@@ -20,6 +21,7 @@ rhel)  echo "Installing in $OSID"
     fonts_install
     zsh_backup
     link_install
+    kube_addons_install
     ;;
 #suse) echo "Installing in $OSID" # untested
 #    zypper install zsh autojump curl git wget kubectl
@@ -28,8 +30,8 @@ cbld) echo "Installing in $OSID, posibly azure."
     zsh_install
     fonts_install
     zsh_backup
-    link_install
     link_install_cbld
+    kube_addons_install
 ;;
 *) echo "Unsupported OS: $OSID"
 exit 99
@@ -110,6 +112,8 @@ ln -s $DOTFILES/p10k.zsh $HOME/.p10k.zsh
 
 # kubectx+kubens
 
+kube_addons_install () {
+
 mkdir -p ~/bin
 
 git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
@@ -123,3 +127,6 @@ mkdir -p ~/.oh-my-zsh/completions
 chmod -R 755 ~/.oh-my-zsh/completions
 ln -s ~/.kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
 ln -s ~/.kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
+}
+
+exit 0
