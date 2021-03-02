@@ -83,7 +83,7 @@ if [ -d $HOME/.kubectx ]
     then 
         echo "Kubectx installed. Installation skipped"
     else
-        echo "Kubectx NOT installed. Installing in local user..."
+        echo "Kubectx NOT installed. Installing on local user..."
         mkdir -p ~/bin
         git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
 # only user install to avoid sudo
