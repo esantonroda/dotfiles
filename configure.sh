@@ -8,6 +8,11 @@ DOTFILES=$HOME/.dotfiles
 
 
 zsh_install () {
+if [ -d $HOME/.oh-my-zsh ]
+then 
+echo "Zsh installed. Installation skipped"
+else
+echo "Zsh NOT installed. Installing..."
 # install oh-my-zsh and powerline10k theme
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 bash -c "$(curl -fsSL https://gist.githubusercontent.com/romkatv/aa7a70fe656d8b655e3c324eb10f6a8b/raw/install_meslo_wsl.sh)"
@@ -16,6 +21,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+echo "Zsh installation done."
+fi
+
 git clone https://github.com/esantonroda/dotfiles.git $DOTFILES
 if [ $? -eq 128 ]
 then
@@ -23,7 +31,7 @@ echo "fatal error on clone"
   cd $DOTFILES
   git pull
 fi
-echo "Zsh installation done."
+
 }
 
 # fonts
@@ -54,7 +62,7 @@ cp -p $HOME/.zshrc  $DOTFILES/backup/.zshrc-$DATE_BCK
 cp -p $HOME/.p10k.zsh $DOTFILES/backup/.p10k.zsh-$DATE_BCK
 echo "Deleting files..."
 rm -f $HOME/.zshrc $HOME/.p10k.zsh
-echo "Done."
+echo "Backup Done."
 }
 
 ## linking to new files
@@ -80,7 +88,11 @@ ln -s $DOTFILES/p10k-azure.zsh $HOME/.p10k.zsh
 # kubectx+kubens
 
 kube_addons_install () {
-
+if [ -d ~/.kubectx ]
+then 
+echo "Kubectx installed. Installation skipped"
+else
+echo "Kubectx NOT installed. Installing in local user..."
 mkdir -p ~/bin
 git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
 # only user install to avoid sudo
@@ -91,6 +103,7 @@ mkdir -p ~/.oh-my-zsh/completions
 chmod -R 755 ~/.oh-my-zsh/completions
 ln -s ~/.kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
 ln -s ~/.kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
+echo "Kubectx installed.
 }
 
 case "$OSID" in
