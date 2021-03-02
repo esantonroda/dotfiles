@@ -2,6 +2,7 @@
 
 # install required packages
 
+#DATE_BCK=$(date +%Y%m%d%H%M%S)
 OSID=$(grep -oP '(?<=^ID=).+' /etc/os-release | tr -d '"')
 
 case "$OSID" in
@@ -9,12 +10,14 @@ case "$OSID" in
 ubuntu)  echo "Installing in $OSID"
     sudo apt install zsh autojump curl git wget kubectl
     ;;
-rhel)  echo  echo "Installing in $OSID"
+rhel)  echo "Installing in $OSID"
     yum install zsh autojump curl git wget kubectl
     ;;
-#suse)  echo  echo "Installing in $OSID" # untested
+#suse) echo "Installing in $OSID" # untested
 #    zypper install zsh autojump curl git wget kubectl
 #    ;;
+cbld) echo "Installing in $OSID, posibly azure"
+;;
 *) echo "Unsupported OS: $OSID"
 exit 99
    ;;
