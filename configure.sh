@@ -23,7 +23,7 @@ echo "fatal error on clone"
   cd $DOTFILES
   git pull
 fi
-
+echo "Zsh installation done."
 }
 
 # fonts
