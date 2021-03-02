@@ -45,7 +45,7 @@ if [ -f "$FILE" ]
         wget -O $HOME/.fonts/MesloLGS%20NF%20Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
         wget -O $HOME/.fonts/MesloLGS%20NF%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
         wget -O $HOME/.fonts/MesloLGS%20NF%20Bold%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-        echo "MesloLGS Fonts installed on $HOME/.fonts"
+        echo "MesloLGS Fonts installed on $HOME/.fonts."
 fi
 }
 
@@ -78,6 +78,7 @@ echo "Files linked."
 
 kube_addons_install () {
 # kubectx+kubens
+echo "Installing kube addons..."
 if [ -d $HOME/.kubectx ]
     then 
         echo "Kubectx installed. Installation skipped"
@@ -95,6 +96,7 @@ if [ -d $HOME/.kubectx ]
         ln -s ~/.kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
         echo "Kubectx installed."
 fi
+echo "Kube addons installed."
 }
 
 case "$OSID" in
