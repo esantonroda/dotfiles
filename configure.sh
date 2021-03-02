@@ -26,12 +26,27 @@ fi
 
 # fonts
 
+test_fonts_install () {
+    FILE=$HOME/.fonts/MesloLGS%20NF%20Regular.ttf
+    if [ -f "$FILE" ]
+        then    
+        echo "$FILE exists."
+        $TEST=fonts_ok
+    fi
+
+}
+
 fonts_install () {
+if [ $TEST = "fonts_ok" ]
+then
+echo "Fonts already installed"
+else
 mkdir -p $HOME/.fonts
 wget -O $HOME/.fonts/MesloLGS%20NF%20Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
 wget -O $HOME/.fonts/MesloLGS%20NF%20Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
 wget -O $HOME/.fonts/MesloLGS%20NF%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 wget -O $HOME/.fonts/MesloLGS%20NF%20Bold%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+fi
 }
 
 zsh_backup () {
@@ -89,6 +104,7 @@ case "$OSID" in
 ubuntu)  echo "Installing in $OSID"
     sudo apt install zsh autojump curl git wget kubectl
     zsh_install
+    test_fonts_install
     fonts_install
     zsh_backup
     link_install
