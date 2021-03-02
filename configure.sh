@@ -63,14 +63,18 @@ echo "Backup Done."
 
 link_install () {
 ## linking to new files
+echo "Linking up files..."
 ln -s $DOTFILES/zshrc $HOME/.zshrc 
 ln -s $DOTFILES/p10k.zsh $HOME/.p10k.zsh
+echo "Files linked."
 }
 
 link_install_cbld () {
 ## linking to new files
+echo "Linking up files..."
 ln -s $DOTFILES/zshrc $HOME/.zshrc 
 ln -s $DOTFILES/p10k-azure.zsh $HOME/.p10k.zsh
+echo "Files linked."
 }
 
 kube_addons_install () {
@@ -111,9 +115,14 @@ rhel)  echo "Installing in $OSID"
     link_install
     kube_addons_install
     ;;
-#suse) echo "Installing in $OSID" # untested
-#    zypper install zsh autojump curl git wget kubectl
-#    ;;
+suse) echo "Installing in $OSID" 
+    zypper install zsh autojump curl git wget kubectl
+    zsh_install
+    fonts_install
+    zsh_backup
+    link_install
+    kube_addons_install
+    ;;
 cbld) echo "Installing in $OSID, posibly azure."
     zsh_install
     zsh_backup
