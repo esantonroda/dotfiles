@@ -88,7 +88,7 @@ ln -s $DOTFILES/p10k-azure.zsh $HOME/.p10k.zsh
 # kubectx+kubens
 
 kube_addons_install () {
-if [ -d ~/.kubectx ]
+if [ -d $HOME/.kubectx ]
     then 
         echo "Kubectx installed. Installation skipped"
     else
@@ -103,7 +103,7 @@ if [ -d ~/.kubectx ]
         chmod -R 755 ~/.oh-my-zsh/completions
         ln -s ~/.kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
         ln -s ~/.kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
-        echo "Kubectx installed.
+        echo "Kubectx installed."
 fi
 }
 
