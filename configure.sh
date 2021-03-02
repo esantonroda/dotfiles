@@ -41,6 +41,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone --depth=1 https://gitee.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 git clone https://github.com/esantonroda/dotfiles.git $HOME/.dotfiles
+# if it's not the first time
+# if $?=128
+# cd $HOME/.dotfiles
+# git pull
+# fi
+
 
 # fonts
 
@@ -81,8 +87,8 @@ mkdir -p ~/bin
 git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
 
 chmod +x ~/.kubectx/kubens ~/.kubectx/kubectx
-sudo ln -sf ~/.kubectx/kubens /usr/local/bin/kubens
-sudo ln -sf ~/.kubectx/kubectx /usr/local/bin/kubectx
+ln -sf ~/.kubectx/kubens ~/bin/kubens
+ln -sf ~/.kubectx/kubectx ~/usr/local/bin/kubectx
 
 mkdir -p ~/.oh-my-zsh/completions
 chmod -R 755 ~/.oh-my-zsh/completions
