@@ -34,20 +34,19 @@ fi
 fonts_install () {
 # Fonts needed by powerline10k
 FILE=$HOME/.fonts/MesloLGS%20NF%20Regular.ttf
-
-    if [ -f "$FILE" ]
-        then    
-            echo "Fonts already installed."
-        else
-            echo "Installing MesloLGS Fonts..."
+if [ -f "$FILE" ]
+    then    
+        echo "Fonts already installed."
+    else
+        echo "Installing MesloLGS Fonts..."
 # bash -c "$(curl -fsSL https://gist.githubusercontent.com/romkatv/aa7a70fe656d8b655e3c324eb10f6a8b/raw/install_meslo_wsl.sh)"
-            mkdir -p $HOME/.fonts
-            wget -O $HOME/.fonts/MesloLGS%20NF%20Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
-            wget -O $HOME/.fonts/MesloLGS%20NF%20Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
-            wget -O $HOME/.fonts/MesloLGS%20NF%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
-            wget -O $HOME/.fonts/MesloLGS%20NF%20Bold%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
-            echo "MesloLGS Fonts installed on $HOME/.fonts"
-    fi
+        mkdir -p $HOME/.fonts
+        wget -O $HOME/.fonts/MesloLGS%20NF%20Regular.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf
+        wget -O $HOME/.fonts/MesloLGS%20NF%20Bold.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf
+        wget -O $HOME/.fonts/MesloLGS%20NF%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
+        wget -O $HOME/.fonts/MesloLGS%20NF%20Bold%20Italic.ttf https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
+        echo "MesloLGS Fonts installed on $HOME/.fonts"
+fi
 }
 
 zsh_backup () {
