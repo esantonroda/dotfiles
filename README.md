@@ -1,6 +1,6 @@
 # dotfiles
 
-repo to keep track of my linux desktop preferences
+repo to keep track of my linux desktop preferences, adapted for suse, ubuntu (wsl too), rhel/centos and cbld (debian in azure cloud shell).
 
 ```shell
 
