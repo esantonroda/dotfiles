@@ -24,7 +24,7 @@ fi
 git clone https://github.com/esantonroda/dotfiles.git $DOTFILES
 if [ $? -eq 128 ]
     then
-        echo "Fatal error on dotfile's repo clone. Pulling it..."
+        echo "Fatal error on dotfile's repo clone. Git-Pulling it..."
         cd $DOTFILES
         git pull
         echo "Git pull done."
