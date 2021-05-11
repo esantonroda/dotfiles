@@ -76,6 +76,12 @@ ln -s $DOTFILES/p10k-azure.zsh $HOME/.p10k.zsh
 echo "Files linked."
 }
 
+kubectl_install () {
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    mkdir -p ~/.local/bin/kubectl
+    mv ./kubectl ~/.local/bin/kubectl
+}
+
 kube_addons_install () {
 # kubectx+kubens
 echo "Installing kube addons..."
@@ -101,7 +107,8 @@ echo "Kube addons installed."
 
 case "$OSID" in
 ubuntu)  echo "Installing in $OSID"
-    sudo apt install zsh autojump curl git wget kubectl
+    sudo apt install zsh autojump curl git wget
+    kubectl_install
     zsh_install
     fonts_install
     zsh_backup
@@ -109,7 +116,8 @@ ubuntu)  echo "Installing in $OSID"
     kube_addons_install
     ;;
 rhel)  echo "Installing in $OSID"
-    yum install zsh autojump curl git wget kubectl
+    yum install zsh autojump curl git wget
+    kubectl_install
     zsh_install
     fonts_install
     zsh_backup
@@ -117,7 +125,8 @@ rhel)  echo "Installing in $OSID"
     kube_addons_install
     ;;
 suse) echo "Installing in $OSID" 
-    zypper install zsh autojump curl git wget kubectl
+    zypper install zsh autojump curl git wget
+    kubectl_install
     zsh_install
     fonts_install
     zsh_backup
