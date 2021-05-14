@@ -117,7 +117,7 @@ ubuntu)  echo "Installing in $OSID"
     kube_addons_install
     ;;
 rhel)  echo "Installing in $OSID"
-    yum install zsh autojump curl git wget
+    sudo yum install zsh autojump curl git wget
     kubectl_install
     zsh_install
     fonts_install
@@ -126,7 +126,7 @@ rhel)  echo "Installing in $OSID"
     kube_addons_install
     ;;
 suse) echo "Installing in $OSID" 
-    zypper install zsh autojump curl git wget
+    sudo zypper install zsh autojump curl git wget
     kubectl_install
     zsh_install
     fonts_install
