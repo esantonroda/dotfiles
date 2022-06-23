@@ -108,7 +108,7 @@ echo "Kube addons installed."
 
 case "$OSID" in
 ubuntu)  echo "Installing in $OSID"
-    sudo apt install zsh autojump curl git wget
+    sudo apt install zsh curl git wget
     kubectl_install
     zsh_install
     fonts_install
@@ -117,7 +117,7 @@ ubuntu)  echo "Installing in $OSID"
     kube_addons_install
     ;;
 rhel)  echo "Installing in $OSID"
-    sudo yum install zsh autojump curl git wget
+    sudo yum install zsh curl git wget
     kubectl_install
     zsh_install
     fonts_install
@@ -126,7 +126,7 @@ rhel)  echo "Installing in $OSID"
     kube_addons_install
     ;;
 fedora)  echo "Installing in $OSID"
-    sudo yum install zsh autojump curl git wget
+    sudo yum install zsh curl git wget
     kubectl_install
     zsh_install
     fonts_install
