@@ -125,6 +125,15 @@ rhel)  echo "Installing in $OSID"
     link_install
     kube_addons_install
     ;;
+ol)  echo "Installing in $OSID"
+    sudo yum install zsh curl git wget
+    kubectl_install
+    zsh_install
+    fonts_install
+    zsh_backup
+    link_install
+    kube_addons_install
+    ;;
 fedora)  echo "Installing in $OSID"
     sudo yum install zsh curl git wget
     kubectl_install
