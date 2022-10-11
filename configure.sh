@@ -99,8 +99,8 @@ if [ -d $HOME/.kubectx ]
         ln -sf ~/.kubectx/kubectx ~/bin/kubectx
         mkdir -p ~/.oh-my-zsh/completions
         chmod -R 755 ~/.oh-my-zsh/completions
-        ln -s ~/.kubectx/completion/kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
-        ln -s ~/.kubectx/completion/kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
+        ln -s ~/.kubectx/completion/_kubectx.zsh ~/.oh-my-zsh/completions/_kubectx.zsh
+        ln -s ~/.kubectx/completion/_kubens.zsh ~/.oh-my-zsh/completions/_kubens.zsh
         echo "Kubectx installed."
 fi
 echo "Kube addons installed."
